@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "For contribution guidelines, see the [Contribution Guidelines](CONTRIBUTING.md).",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
