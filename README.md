@@ -1,2 +1,5 @@
-For contribution guidelines, see the [Contribution Guidelines](CONTRIBUTING.md).
+
+## Contribution Guidelines
+
+For contribution guidelines, see the [Contribution Guidelines](CONTRIBUTING.MD).
 
