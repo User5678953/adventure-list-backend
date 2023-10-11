@@ -1,3 +1,8 @@
+# Run the server
+Terminal Command: Nodemon server.js
+
+# Shutdown the server
+Terminal Command: Ctrl + C
 
 ## Contribution Guidelines
 
