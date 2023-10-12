@@ -20,7 +20,9 @@ router.get('/', (req, res) => {
 })
 
 // CREATE
-// router.get
+router.get('/newAdventure', (req, res) => {
+    res.send('create adventure route')
+})
 
 // UPDATE
 
