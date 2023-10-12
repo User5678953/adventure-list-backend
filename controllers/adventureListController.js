@@ -10,6 +10,21 @@ const router = express.Router()
 
 
 
+////////////////////////////////
+// ROUTES
+////////////////////////////////
+
+// INDEX
+router.get('/', (req, res) => {
+    res.send('index route')
+})
+
+// CREATE
+// router.get
+
+// UPDATE
+
+// DELETE
 
 
 ////////////////////////////////
