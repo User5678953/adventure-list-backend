@@ -11,6 +11,12 @@ const mongoose = require('mongoose')
 const app = express();
 
 ////////////////////////////////
+// ROUTERS 
+////////////////////////////////
+
+const photosRouter = require('./controllers/photosController')
+
+////////////////////////////////
 // DATABASE CONNECTION 
 ////////////////////////////////
 
@@ -47,19 +53,7 @@ app.get('/', (req, res) => {
   res.send('THIS IS A TEST ROUTE!');
 });
 
-
-// INDEX ROUTE
-
-
-
-
-// CREATE ROUTE 
-
-
-// UPDATE ROUTE
-
-// DESTROY/DELETE ROUTE 
-
+app.use('/photos', photosRouter)
 
 ////////////////////////////////
 // LISTENER 
