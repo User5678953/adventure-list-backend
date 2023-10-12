@@ -13,19 +13,18 @@ const app = express();
 ////////////////////////////////
 // DATABASE CONNECTION 
 ////////////////////////////////
+
 // Database not connected, yet
-// const { DATABASE_URL } = process.env;
+const { DATABASE_URL } = process.env;
 
 // Mongoose connection
-
-// mongoose.connect(DATABASE_URL)
+mongoose.connect(DATABASE_URL)
 
 // Mongoose connection messages
 mongoose.connection
     .on('open', () => console.log('You are connected to mongoose'))
     .on('close', () => console.log('You are disconnected to mongoose'))
     .on('error', (err) => console.log(err))
-
 
 ////////////////////////////////
 // MODELS 
