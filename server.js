@@ -47,19 +47,11 @@ app.get('/', (req, res) => {
   res.send('THIS IS A TEST ROUTE!');
 });
 
+// CONTROLLERS
+const adventureListController = require('./controllers/adventureListController')
 
-// INDEX ROUTE
-
-
-
-
-// CREATE ROUTE 
-
-
-// UPDATE ROUTE
-
-// DESTROY/DELETE ROUTE 
-
+// USE CONTROLLERS
+app.use('/adventureList', adventureListController)
 
 ////////////////////////////////
 // LISTENER 
