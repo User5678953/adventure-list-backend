@@ -1,6 +1,6 @@
 
 // Require model
-const Photos = require("../models/Photos")
+//const Photos = require("../models/Photos")
 
 // Require Express
 const express = require('express')
