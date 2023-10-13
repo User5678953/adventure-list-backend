@@ -11,9 +11,6 @@ const mongoose = require('mongoose')
 
 const app = express();
 
-// CONTROLLERS
-const photosRouter = require('./controllers/photosController')
-
 ////////////////////////////////
 // DATABASE CONNECTION 
 ////////////////////////////////
@@ -38,7 +35,14 @@ mongoose.connection
 ///////////////////////////////
 // CONTROLLERS
 ///////////////////////////////
+// Auth Controller
 const authenticationController = require('./controllers/authenticationController.js')
+
+// Photos Controller
+const photosController = require("./controllers/photosController.js");
+
+// Adventure Controller
+const adventureListController = require('./controllers/adventureListController.js')
 
 ////////////////////////////////
 // MIDDLEWARE
@@ -60,21 +64,17 @@ app.use(
 // ROUTES 
 ////////////////////////////////
 
-
-// Authentication Controller Route
-app.use('/register', authenticationController)
-
 // TEST Route
 app.get('/', (req, res) => {
   res.send('THIS IS A TEST ROUTE!');
 });
 
-// CONTROLLERS
-const adventureListController = require('./controllers/adventureListController')
 
 // USE CONTROLLERS
 app.use('/adventureList', adventureListController)
-app.use('/photos', photosRouter)
+app.use('/photos', photosController)
+// Authentication Controller Route
+app.use('/register', authenticationController)
 
 ////////////////////////////////
 // LISTENER 
