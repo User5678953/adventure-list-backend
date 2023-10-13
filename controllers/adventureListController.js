@@ -43,7 +43,13 @@ router.put('/:id', async (req, res) => {
 })
 
 // DELETE
-
+router.delete('/:id', async (req, res) => {
+    try {
+        res.json(await AdventureList.findByIdAndRemove(req.params.id))
+    } catch (error) {
+        res.send(400).json(error)
+    }
+})
 
 ////////////////////////////////
 // EXPORTS
