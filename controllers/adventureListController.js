@@ -8,7 +8,8 @@ const router = express.Router()
 // MODELS
 ////////////////////////////////
 
-
+// Need to adjust as needed once models are created
+// const Adventures = require('../models/Adventures')
 
 ////////////////////////////////
 // ROUTES
@@ -18,7 +19,7 @@ const router = express.Router()
 router.get('/', async (req, res) => {
     // res.send('index route')
     try {
-        res.json(await AdventureList.find({}))
+        res.json(await Adventures.find({}))
     } catch (error) {
         res.status(400).json(error)
     }
@@ -27,7 +28,7 @@ router.get('/', async (req, res) => {
 // CREATE
 router.post('/', async (req, res) => {
     try {
-        res.json(await AdventureList.create(req.body))
+        res.json(await Adventures.create(req.body))
     } catch (error) {
         res.status(400).json(error)
     }
@@ -36,7 +37,7 @@ router.post('/', async (req, res) => {
 // UPDATE
 router.put('/:id', async (req, res) => {
     try {
-        res.json(await AdventureList.findByIdAndUpdate(req.params.id, req.body, {new: true}))
+        res.json(await Adventures.findByIdAndUpdate(req.params.id, req.body, {new: true}))
     } catch (error) {
         res.send(400).json(error)
     }
@@ -45,7 +46,7 @@ router.put('/:id', async (req, res) => {
 // DELETE
 router.delete('/:id', async (req, res) => {
     try {
-        res.json(await AdventureList.findByIdAndRemove(req.params.id))
+        res.json(await Adventures.findByIdAndRemove(req.params.id))
     } catch (error) {
         res.send(400).json(error)
     }
