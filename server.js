@@ -10,10 +10,7 @@ const mongoose = require('mongoose')
 
 const app = express();
 
-////////////////////////////////
-// ROUTERS 
-////////////////////////////////
-
+// CONTROLLERS
 const photosRouter = require('./controllers/photosController')
 
 ////////////////////////////////
@@ -53,6 +50,7 @@ app.get('/', (req, res) => {
   res.send('THIS IS A TEST ROUTE!');
 });
 
+// USE CONTROLLERS
 app.use('/photos', photosRouter)
 
 ////////////////////////////////
