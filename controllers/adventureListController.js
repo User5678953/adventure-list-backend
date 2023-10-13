@@ -34,6 +34,13 @@ router.post('/', async (req, res) => {
 })
 
 // UPDATE
+router.put('/:id', async (req, res) => {
+    try {
+        res.json(await AdventureList.findByIdAndUpdate(req.params.id, req.body, {new: true}))
+    } catch (error) {
+        res.send(400).json(error)
+    }
+})
 
 // DELETE
 
