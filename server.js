@@ -31,6 +31,11 @@ mongoose.connection
 ////////////////////////////////
 
 
+///////////////////////////////
+// CONTROLLERS
+///////////////////////////////
+const authenticationController = require('./controllers/authenticationController.js')
+
 ////////////////////////////////
 // MIDDLEWARE
 ////////////////////////////////
@@ -38,9 +43,14 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 
+
 ////////////////////////////////
 // ROUTES 
 ////////////////////////////////
+
+
+// Authentication Controller Route
+app.use('/register', authenticationController)
 
 // TEST Route
 app.get('/', (req, res) => {
