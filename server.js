@@ -5,6 +5,7 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
+const session = require('express-session')
 require('dotenv').config();
 const mongoose = require('mongoose')
 
@@ -42,6 +43,14 @@ const authenticationController = require('./controllers/authenticationController
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true}))
+app.use(
+    session({
+        secret: process.env.SECRET,
+        resave: false,
+        saveUninitialized: false
+    })
+)
 
 
 ////////////////////////////////
