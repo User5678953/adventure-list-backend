@@ -9,7 +9,7 @@ const router = express.Router()
 ////////////////////////////////
 
 // Need to adjust as needed once models are created
-// const Adventures = require('../models/Adventures')
+const Adventures = require('../models/AdventureLists')
 
 ////////////////////////////////
 // ROUTES
@@ -22,6 +22,16 @@ router.get('/', async (req, res) => {
         res.json(await Adventures.find({}))
     } catch (error) {
         res.status(400).json(error)
+    }
+})
+
+// SHOW
+router.get('/:id', async (req,res) => {
+    try {
+        res.json(await Adventures.findById(req.params.id))
+    } catch (err){
+        console.log(err)
+        res.status(400).json(err)
     }
 })
 
