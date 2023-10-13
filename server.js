@@ -39,10 +39,10 @@ mongoose.connection
 const authenticationController = require('./controllers/authenticationController.js')
 
 // Photos Controller
-const photosRouter = require("./controllers/photosController");
+const photosController = require("./controllers/photosController.js");
 
 // Adventure Controller
-const adventureListController = require('./controllers/adventureListController')
+const adventureListController = require('./controllers/adventureListController.js')
 
 ////////////////////////////////
 // MIDDLEWARE
@@ -72,7 +72,7 @@ app.get('/', (req, res) => {
 
 // USE CONTROLLERS
 app.use('/adventureList', adventureListController)
-app.use('/photos', photosRouter)
+app.use('/photos', photosController)
 // Authentication Controller Route
 app.use('/register', authenticationController)
 

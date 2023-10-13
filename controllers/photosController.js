@@ -1,6 +1,6 @@
 
 // Require model
-//const Photos = require("../models/Photos")
+const Photos = require("../models/Photos")
 
 // Require Express
 const express = require('express')
@@ -9,7 +9,7 @@ const express = require('express')
 const router = express.Router()
 
 // POST - CREATE a new photo
-router.post('/upload', (req, res) => {
+router.post('/upload', async (req, res) => {
 
     try {
         // capture URL from body
@@ -17,6 +17,7 @@ router.post('/upload', (req, res) => {
         // if image url captured, log success!
         if (imageURL) {
             console.log(imageURL)
+            const newImage = await Photos.create(req.body)
             // success
             res.status(201).json("File uploaded successfully!");
         } else {
