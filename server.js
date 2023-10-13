@@ -10,6 +10,9 @@ const mongoose = require('mongoose')
 
 const app = express();
 
+// CONTROLLERS
+const photosRouter = require('./controllers/photosController')
+
 ////////////////////////////////
 // DATABASE CONNECTION 
 ////////////////////////////////
@@ -52,6 +55,7 @@ const adventureListController = require('./controllers/adventureListController')
 
 // USE CONTROLLERS
 app.use('/adventureList', adventureListController)
+app.use('/photos', photosRouter)
 
 ////////////////////////////////
 // LISTENER 
