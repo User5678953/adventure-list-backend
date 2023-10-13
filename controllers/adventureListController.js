@@ -15,13 +15,22 @@ const router = express.Router()
 ////////////////////////////////
 
 // INDEX
-router.get('/', (req, res) => {
-    res.send('index route')
+router.get('/', async (req, res) => {
+    // res.send('index route')
+    try {
+        res.json(await AdventureList.find({}))
+    } catch (error) {
+        res.status(400).json(error)
+    }
 })
 
 // CREATE
-router.get('/newAdventure', (req, res) => {
-    res.send('create adventure route')
+router.post('/', async (req, res) => {
+    try {
+        res.json(await AdventureList.create(req.body))
+    } catch (error) {
+        res.status(400).json(error)
+    }
 })
 
 // UPDATE
