@@ -8,8 +8,13 @@ router.get('/', (req,res) => {
     res.send('This is the registration page')
 })
 
-router.get('/login', (req,res) => {
-    res.send('This is the login page')
+router.get('/login', async (req,res) => {
+    // res.send('This is the login page')
+    try {
+        res.json(await User.find({}))
+    } catch (error) {
+        res.status(400).json(error)
+    }
 })
 
 router.post('/', async (req,res) => {
