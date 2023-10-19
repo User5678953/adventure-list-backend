@@ -24,7 +24,7 @@ router.post('/', async (req,res) => {
         req.session.currentUser = newUser
         const sessionUser = req.session.currentUser.username
         req.session.username = sessionUser
-        res.send("You have succesfully created an account")
+        res.json("Success")
     } catch (err) {
         console.log(err)
         res.send("Username in use, try another")
@@ -39,7 +39,7 @@ router.post('/login', async (req,res) => {
             if(isAMAtch) {
                 console.log('login succesful')
                 req.session.username = foundUser
-                res.send('you are logged in')
+                res.json("logged in")
             } else {
                 res.send('Try logging in again')
             }
