@@ -59,7 +59,7 @@ router.delete('/logout', (req,res) => {
             res.status(500).res.send('Logout failed, please try again')
         } else {
             console.log('Succesfully logged out')
-            res.send('back to homepage')
+            res.json('logged out')
         }
     })
 })
