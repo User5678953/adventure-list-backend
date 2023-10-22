@@ -3,6 +3,7 @@
 ////////////////////////////////
 const express = require('express')
 const router = express.Router()
+const session = require('express-session')
 
 ////////////////////////////////
 // MODELS
@@ -38,7 +39,11 @@ router.get('/:id', async (req,res) => {
 // CREATE
 router.post('/', async (req, res) => {
     try {
+        const currentUser = req.session.username.username
+        console.log(currentUser)
+        req.body.owner = currentUser
         res.json(await Adventures.create(req.body))
+        console.log("Sucesfully Created Adventure")
     } catch (error) {
         res.status(400).json(error)
     }
