@@ -23,7 +23,8 @@ router.post('/upload', async (req, res) => {
         } else {
             console.log('No URL image provided')
             // bad request error
-            res.status(400).json(error)
+            res.status(400).json({ message: "No URL image provided" });
+
         }
     } catch (error) {
         // server side error
