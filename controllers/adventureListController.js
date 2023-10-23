@@ -3,6 +3,7 @@
 ////////////////////////////////
 const express = require('express')
 const router = express.Router()
+const session = require('express-session')
 
 ////////////////////////////////
 // MODELS
@@ -19,7 +20,17 @@ const Adventures = require('../models/AdventureLists')
 router.get('/', async (req, res) => {
     // res.send('index route')
     try {
-        res.json(await Adventures.find({}))
+        // variable for grabbing current user
+        const currentUser = req.session.username.username
+        console.log(currentUser)
+
+        // finding all items in the AdventureList
+        const foundList = await Adventures.find({})
+
+        // filter the list by making sure the owner is the same as the current user
+        const filteredList = foundList.filter((item) => item.owner === currentUser)
+        
+        res.json(await filteredList)
     } catch (error) {
         res.status(400).json(error)
     }
@@ -38,7 +49,13 @@ router.get('/:id', async (req,res) => {
 // CREATE
 router.post('/', async (req, res) => {
     try {
+        // variable for grabbing current user
+        const currentUser = req.session.username.username
+        console.log(currentUser)
+        // making the owner equal to the current user that is logged in
+        req.body.owner = currentUser
         res.json(await Adventures.create(req.body))
+        console.log("Sucesfully Created Adventure")
     } catch (error) {
         res.status(400).json(error)
     }
