@@ -10,7 +10,7 @@ const AdventureListSchema = Schema({
     location: {type: String},
     completed: Boolean,
     tags: {type: String},
-    owner: {type: String, required: true},
+    owner: { type: String, required: false },
     coOwners: [{type: String}]
 })
 
