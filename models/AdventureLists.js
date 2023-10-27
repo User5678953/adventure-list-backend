@@ -4,6 +4,7 @@ const photos = require('./Photos')
 
 const AdventureListSchema = Schema({
     title: { type: String, required: true},
+    coverPhoto: String,
     description: {type: String, required: true},
     photos: [{ type: mongoose.Schema.Types.ObjectId, ref: "Photo"}],
     dateCreated: {type: Date},
