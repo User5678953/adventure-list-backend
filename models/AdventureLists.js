@@ -12,7 +12,7 @@ const AdventureListSchema = Schema({
     tags: {type: String},
     owner: { type: String, required: false },
     coOwners: [{type: String}],
-    coverPhoto: String
+    // coverPhoto: String
 })
 
 const AdventureList = mongoose.model('AdventureList', AdventureListSchema)
