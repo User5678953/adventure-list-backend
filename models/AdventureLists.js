@@ -11,7 +11,8 @@ const AdventureListSchema = Schema({
     completed: Boolean,
     tags: {type: String},
     owner: { type: String, required: false },
-    coOwners: [{type: String}]
+    coOwners: [{type: String}],
+    // coverPhoto: String
 })
 
 const AdventureList = mongoose.model('AdventureList', AdventureListSchema)

@@ -56,6 +56,7 @@ router.post('/', async (req, res) => {
         // req.body.owner = currentUser
         res.json(await Adventures.create(req.body))
         console.log("Sucesfully Created Adventure")
+        console.log(req.json)
     } catch (error) {
         res.status(400).json(error)
     }
